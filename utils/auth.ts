@@ -18,6 +18,8 @@ export const LOGIN_CREDENTIALS = {
 };
 
 export function login(username: string, password: string): boolean {
+  if (typeof window === "undefined") return false;
+  
   if (
     username === LOGIN_CREDENTIALS.username &&
     password === LOGIN_CREDENTIALS.password
@@ -30,11 +32,15 @@ export function login(username: string, password: string): boolean {
 }
 
 export function logout(): void {
+  if (typeof window === "undefined") return;
+  
   localStorage.removeItem(USER_KEY);
   window.dispatchEvent(new Event("lh-deal:auth-change"));
 }
 
 export function getUser(): User | null {
+  if (typeof window === "undefined") return null;
+  
   const userStr = localStorage.getItem(USER_KEY);
   if (userStr) {
     try {

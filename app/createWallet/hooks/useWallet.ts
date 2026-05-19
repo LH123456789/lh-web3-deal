@@ -30,8 +30,11 @@ export function useWallet() {
    * 从 localStorage 初始化，如果没有则为 null
    */
   const [wallet, setWallet] = useState<WalletInfo | null>(() => {
-    const saved = localStorage.getItem(WALLET_KEY);
-    return saved ? JSON.parse(saved) : null;
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(WALLET_KEY);
+      return saved ? JSON.parse(saved) : null;
+    }
+    return null;
   });
 
   /**

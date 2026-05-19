@@ -17,12 +17,18 @@ const LANGUAGE_KEY = "lh-deal-language";
 export default function SettingsDrawer({ open, onClose }: SettingsDrawerProps) {
     const t = useTranslations("settings");
     const [darkMode, setDarkMode] = useState(() => {
-        const saved = localStorage.getItem(THEME_KEY);
-        return saved ? saved === "dark" : false;
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem(THEME_KEY);
+            return saved ? saved === "dark" : false;
+        }
+        return false;
     });
     const [language, setLanguage] = useState(() => {
-        const saved = localStorage.getItem(LANGUAGE_KEY);
-        return saved || "zh";
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem(LANGUAGE_KEY);
+            return saved || "zh";
+        }
+        return "zh";
     });
 
     useEffect(() => {
