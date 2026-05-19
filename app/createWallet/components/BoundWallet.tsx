@@ -91,12 +91,15 @@ export default function BoundWallet() {
         </Card>
 
         <Card
-          title={t("subWallets") || "子钱包"}
+          title={
+            <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+              {t("subWallets") || "子钱包"}
+            </Text>
+          }
           style={{
             backgroundColor: "var(--color-surface-elevated)",
             borderColor: "var(--color-border)",
           }}
-          titleStyle={{ color: "var(--color-text-primary)" }}
         >
           <div className="space-y-4">
             {SUB_WALLETS.map((wallet, index) => (
