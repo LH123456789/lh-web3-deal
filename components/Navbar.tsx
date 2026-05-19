@@ -87,7 +87,7 @@ export default function Navbar() {
                   color: 'var(--color-text-primary)',
                   '--tw-placeholder-color': 'var(--color-text-muted)',
                   '--tw-ring-color': 'var(--color-primary)'
-                }}
+                } as React.CSSProperties}
               />
               <svg
                 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 transition-colors duration-300"
