@@ -293,13 +293,16 @@ export default function StrategiesPage() {
         <Row gutter={16}>
           <Col span={16}>
             <Card
-              title="策略列表"
+              title={
+                <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+                  策略列表
+                </Text>
+              }
               style={{
                 backgroundColor: "var(--color-surface-elevated)",
                 borderColor: "var(--color-border)",
                 marginBottom: "24px",
               }}
-              titleStyle={{ color: "var(--color-text-primary)" }}
             >
               <Table
                 columns={columns}
@@ -310,12 +313,15 @@ export default function StrategiesPage() {
             </Card>
 
             <Card
-              title="最近交易"
+              title={
+                <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+                  最近交易
+                </Text>
+              }
               style={{
                 backgroundColor: "var(--color-surface-elevated)",
                 borderColor: "var(--color-border)",
               }}
-              titleStyle={{ color: "var(--color-text-primary)" }}
             >
               <Table
                 dataSource={recentTrades}
@@ -406,13 +412,16 @@ export default function StrategiesPage() {
 
           <Col span={8}>
             <Card
-              title="策略详情"
+              title={
+                <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+                  策略详情
+                </Text>
+              }
               style={{
                 backgroundColor: "var(--color-surface-elevated)",
                 borderColor: "var(--color-border)",
                 marginBottom: "24px",
               }}
-              titleStyle={{ color: "var(--color-text-primary)" }}
             >
               <div style={{ marginBottom: "16px" }}>
                 <div
@@ -553,12 +562,15 @@ export default function StrategiesPage() {
             </Card>
 
             <Card
-              title="策略收益曲线"
+              title={
+                <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+                  策略收益曲线
+                </Text>
+              }
               style={{
                 backgroundColor: "var(--color-surface-elevated)",
                 borderColor: "var(--color-border)",
               }}
-              titleStyle={{ color: "var(--color-text-primary)" }}
             >
               <div
                 style={{

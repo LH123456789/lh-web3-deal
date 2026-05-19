@@ -136,9 +136,9 @@ export default function ImportWalletModal({ visible, onCancel, onSuccess }: Impo
     const config = networkConfig[network];
     
     try {
-      const provider = new ethers.providers.JsonRpcProvider(config.rpcUrl);
+      const provider = new ethers.JsonRpcProvider(config.rpcUrl);
       const balance = await provider.getBalance(address);
-      const balanceInEth = ethers.utils.formatEther(balance);
+      const balanceInEth = ethers.formatEther(balance);
       
       console.log(`=== ${config.name}钱包余额 ===`);
       console.log(`${config.symbol}余额:`, balanceInEth);

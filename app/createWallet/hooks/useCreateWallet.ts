@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { ethers } from "ethers";
 
 export interface CreatedWallet {
-  mnemonic: string;
+  mnemonic: string | null;
   address: string;
   privateKey: string;
   createdAt: number;
@@ -20,7 +20,7 @@ export function useCreateWallet() {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       const wallet = ethers.Wallet.createRandom();
-      const mnemonic = wallet.mnemonic.phrase;
+      const mnemonic = wallet.mnemonic ? wallet.mnemonic.phrase : '';
 
       const newWallet: CreatedWallet = {
         mnemonic,

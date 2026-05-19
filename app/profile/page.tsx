@@ -122,13 +122,16 @@ export default function ProfilePage() {
         </Card>
 
         <Card
-          title="账户概览"
+          title={
+            <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+              账户概览
+            </Text>
+          }
           style={{
             backgroundColor: "var(--color-surface-elevated)",
             borderColor: "var(--color-border)",
             marginBottom: "24px",
           }}
-          titleStyle={{ color: "var(--color-text-primary)" }}
         >
           <Row gutter={16}>
             <Col span={8}>
@@ -226,12 +229,15 @@ export default function ProfilePage() {
         </Card>
 
         <Card
-          title="账户设置"
+          title={
+            <Text style={{ color: "var(--color-text-primary)", fontSize: "16px", fontWeight: 600 }}>
+              账户设置
+            </Text>
+          }
           style={{
             backgroundColor: "var(--color-surface-elevated)",
             borderColor: "var(--color-border)",
           }}
-          titleStyle={{ color: "var(--color-text-primary)" }}
         >
           {menuItems.map((item, index) => (
             <div key={index}>

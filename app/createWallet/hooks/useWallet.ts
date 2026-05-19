@@ -47,20 +47,16 @@ export function useWallet() {
         return false;
       }
       
-      // 使用 ethers.js 验证助记词有效性
-      if (!ethers.utils.isValidMnemonic(mnemonic)) {
-        return false;
-      }
-      
-      // 从助记词创建钱包实例
-      const wallet = ethers.Wallet.fromMnemonic(mnemonic);
+      // 使用 ethers.js 验证助记词有效性（通过尝试创建钱包）
+      // ethers.js v6 中没有 isValidMnemonic，改用 fromPhrase 验证
+      const wallet = ethers.Wallet.fromPhrase(mnemonic);
       
       // 构造钱包信息对象
       const walletInfo: WalletInfo = {
         address: wallet.address,
         type: "mnemonic",
         createdAt: Date.now(),
-        publicKey: wallet.publicKey,
+        publicKey: wallet.signingKey.publicKey,
       };
       
       // 保存到本地存储
@@ -102,7 +98,7 @@ export function useWallet() {
         address: wallet.address,
         type: "privateKey",
         createdAt: Date.now(),
-        publicKey: wallet.publicKey,
+        publicKey: wallet.signingKey.publicKey,
       };
       
       // 保存到本地存储
